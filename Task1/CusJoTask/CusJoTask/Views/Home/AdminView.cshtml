@@ -1,0 +1,23 @@
+﻿@model CusJoTask.ViewModels.AdminViewModel
+@{
+    ViewBag.Title = "AdminView";
+}
+
+<h2>AdminView</h2>
+
+@using (Html.BeginForm("SaveUserPermission", "Home"))
+{
+    <div class="form-group">
+        <label>User Name</label>
+        @Html.DropDownListFor(m => m.userId, new SelectList(Model.allUsers, "UserId", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.allUsers)
+    </div>
+    <div class="form-group">
+        <label>Role</label>
+        @Html.DropDownListFor(m => m.roleId, new SelectList(Model.allRoles, "RoleId", "RoleName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.allUsers)
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+
